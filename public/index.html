@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stintwall · Endurance planner</title>
+    <meta
+      name="description"
+      content="Standalone endurance race planning, driver rotations and pit strategy."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23101419'/%3E%3Cpath d='M7 8h20l-4 6H13l-3 4h14l-4 6H3l4-6h10l3-4H3z' fill='%23ff353f'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="#"
+        ><span class="brand-mark">≋</span> STINTWALL<span class="edition"
+          >YOUR RACE WORKSPACE</span
+        ></a
+      >
+      <div class="header-right">
+        <span class="badge live">● BROWSER WORKSPACE</span
+        ><span id="clock" class="mono"></span>
+      </div>
+    </header>
+    <div class="shell">
+      <aside>
+        <div class="rail-caption">WORKSPACE</div>
+        <nav aria-label="Main navigation">
+          <button data-view="wall" class="active">
+            <span>◈</span> Overview
+          </button>
+          <button data-view="strategy"><span>01</span> Race setup</button>
+          <button data-view="drivers">
+            <span>02</span> Drivers & availability
+          </button>
+          <button data-view="schedule"><span>03</span> Stint schedule</button>
+          <button data-view="checklists">
+            <span>04</span> Checklists & notes
+          </button>
+          <button data-view="workbook"><span>▧</span> Full workbook</button>
+        </nav>
+        <div class="rail-bottom">
+          <span class="eyebrow">ONE CAR. ONE TEAM.</span>
+          <p id="team-label">CAR #23</p>
+          <small>Private race workspace<br />Plans saved in this browser</small
+          ><button id="export-button">↓ Export race plan</button
+          ><label class="import-button"
+            >↑ Import race plan<input
+              id="import-file"
+              type="file"
+              accept=".json"
+              hidden /></label
+          ><span id="save-status" role="status">Loading workspace…</span>
+        </div>
+      </aside>
+      <main>
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow" id="breadcrumb">
+              OPERATIONS / LIVE OVERVIEW
+            </div>
+            <h1 id="page-title">Your race, at a glance</h1>
+            <p id="race-subtitle">
+              24H ENDURANCE <span> / </span> Preparing race workspace
+            </p>
+          </div>
+          <div class="actions">
+            <button data-action="workbook-example">Load workbook example</button
+            ><button class="primary" id="handover-button">
+              Driver handover ↗
+            </button>
+          </div>
+        </div>
+        <div id="notice" role="status" hidden></div>
+        <div id="view"></div>
+        <footer>
+          <span id="source-caption"
+            >Plans stay in this browser · export JSON for backup</span
+          ><span>STINTWALL <b> / </b> WORKBOOK EDITION</span>
+        </footer>
+      </main>
+    </div>
+    <dialog id="modal">
+      <form id="modal-form">
+        <div class="dialog-heading">
+          <h2 id="modal-title"></h2>
+          <button type="button" id="modal-close" aria-label="Close dialog">
+            ×
+          </button>
+        </div>
+        <div id="modal-content"></div>
+        <div class="dialog-actions">
+          <button type="button" id="modal-cancel">Cancel</button
+          ><button class="primary" id="modal-submit" type="submit">Save</button>
+        </div>
+      </form>
+    </dialog>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

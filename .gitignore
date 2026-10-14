@@ -1,0 +1,11 @@
+node_modules/
+dist/
+data/
+__pycache__/
+*.log
+.legacy-git/
+.pytest_cache/
+.env
+.env.*
+*.sqlite3
+*.sqlite3-*
